@@ -22,10 +22,14 @@ struct ContentView: View {
                             Image("card3")
                             Spacer()
                             Image("card5")
-                            Spacer()
+                            Spacer() 
                         }
                         Spacer()
-                        Image("dealbutton")
+                        Button {
+                            print("Hello")
+                        } label: {
+                            Image("dealbutton")
+                        }
                         Spacer()
                         HStack {
                             Spacer()
