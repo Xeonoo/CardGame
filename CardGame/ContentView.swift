@@ -8,6 +8,12 @@
 import SwiftUI
 
 struct ContentView: View {
+    
+    @State private var CardsPlayer = "card6"
+    @State private var CardsCPU = "card3"
+    @State private var PointsPlayer = 0
+    @State private var PointsCPU = 1
+    
     var body: some View {
         ZStack {
                     
@@ -19,14 +25,23 @@ struct ContentView: View {
                         Spacer()
                         HStack {
                             Spacer()
-                            Image("card3")
+                            Image(CardsPlayer)
                             Spacer()
-                            Image("card5")
+                            Image(CardsCPU)
                             Spacer() 
                         }
                         Spacer()
                         Button {
-                            print("Hello")
+                            
+                            let Prandom = Int.random(in: 2...14)
+                            let Crandom = Int.random(in: 2...14)
+//                            update cards
+                            CardsPlayer = "card" + String(Prandom)
+                            CardsCPU = "card" + String(Crandom)
+//                            update score
+                            PointsPlayer += 1
+                            PointsCPU += 1
+                            
                         } label: {
                             Image("dealbutton")
                         }
@@ -38,7 +53,7 @@ struct ContentView: View {
                                     .font(.headline)
                                     .foregroundColor(Color.white)
                                     .padding(.bottom, 10.0)
-                                Text("0")
+                                Text(String(PointsPlayer))
                                     .font(.largeTitle)
                                     .foregroundColor(Color.white)
                             }
@@ -48,14 +63,14 @@ struct ContentView: View {
                                     .font(.headline)
                                     .foregroundColor(Color.white)
                                     .padding(.bottom, 10.0)
-                                Text("0")
+                                Text(String(PointsCPU))
                                     .font(.largeTitle)
                                     .foregroundColor(Color.white)
                             }
                             Spacer()
                         }
                         Spacer()
-                        
+                         
                     }
                     
                 }
